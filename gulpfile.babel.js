@@ -23,17 +23,17 @@ gulp.task('js', () => {
 
 gulp.task('scss', () => {
     return gulp.src(config.dirs.src.scss + "/**/*.scss")
-               .pipe($.plumber())
-               .pipe($.sourcemaps.init())
-               .pipe($.sass.sync().on('error',$.sass.logError))
-               .pipe($.autoprefixer({
-                    browsers: ['last 3 versions']
-                }))
-               .pipe($.sourcemaps.write())
-               .pipe(gulp.dest(config.dirs.build.css))
-               .pipe(reload({
-                stream: true
-                }))
+        .pipe($.plumber())
+        .pipe($.sourcemaps.init())
+        .pipe($.sass.sync().on('error', $.sass.logError))
+        .pipe($.autoprefixer({
+            browsers: ['last 3 versions']
+        }))
+        .pipe($.sourcemaps.write())
+        .pipe(gulp.dest(config.dirs.build.css))
+        .pipe(reload({
+            stream: true
+        }))
 })
 
 gulp.task('jsx', () => {
@@ -81,17 +81,20 @@ gulp.task('serve', ['move', 'template', 'html', 'scss', 'jsx', 'js'], () => {
     gulp.watch(config.dirs.src.js + "/**/*.js", ['js'])
     gulp.watch(config.dirs.src.components + "/**/*.jsx", ['jsx'])
     gulp.watch(config.dirs.src.templates + "/**/*.tpl", ['template'])
+    gulp.watch(config.dirs.src + "/*.html", ['html'])
+
 
     gulp.watch(config.dirs.build.target + "/**/*.js").on('change', reload)
+    gulp.watch(config.dirs.build.target + "/*.html").on('change', reload)
 })
 
 gulp.task('move', () => {
+})
 
+gulp.task('build', () => {
 })
 
 gulp.task('default', ['serve'], () => {
-
-
 })
 
 gulp.task('clean', () => {
