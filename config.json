@@ -1,0 +1,22 @@
+{
+	"project": "react-movies-demo",
+	"dirs":{
+		"build":{
+			"js": "build/js",
+			"images": "build/images",
+			"css": "build/css",
+			"fonts": "build/fonts",
+			"target": "build",
+			"components": "build/components"
+		},
+		"src":{
+			"target": "app/src",
+			"images": "app/src/assets/images",
+			"fonts": "app/src/assets/fonts",
+			"scss": "app/src/scss",
+			"templates": "app/src/templates",
+			"js": "app/src/js",
+			"components": "app/src/components"
+		}
+	}
+}
